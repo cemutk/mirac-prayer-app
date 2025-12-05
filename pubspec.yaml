@@ -1,7 +1,7 @@
 name: mirac_prayer_assistant
 description: A new Flutter project.
 publish_to: none
-version: 1.1.5+9
+version: 1.1.5+10
 
 environment:
   sdk: ^3.6.0
