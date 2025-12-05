@@ -29,7 +29,7 @@ dependencies:
   geolocator: ^13.0.4
   permission_handler: ^11.1.0
   flutter_inappwebview: ^6.1.5
-  device_info_plus: ^11.4.0
+  device_info_plus: ^11.3.0
   flutter_local_notifications: ^17.2.1
   timezone: ^0.9.4
   camera: ^0.10.0+1
