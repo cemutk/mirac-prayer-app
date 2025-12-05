@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gizlilik Politikası - Mirac Prayer Assistant</title>
+    <meta name="description" content="Mirac Prayer Assistant uygulamasının gizlilik politikası">
+    <style>
+        :root {
+            --primary-color: #1B5E20;
+            --primary-light: #4CAF50;
+            --background: #f5f5f5;
+            --card-bg: #ffffff;
+            --text-primary: #212121;
+            --text-secondary: #757575;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+            background: var(--background);
+            color: var(--text-primary);
+            line-height: 1.6;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, var(--primary-color), var(--primary-light));
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+        }
+        
+        .header h1 {
+            font-size: 2rem;
+            margin-bottom: 10px;
+        }
+        
+        .header p {
+            opacity: 0.9;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        .card {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 24px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        
+        .card h2 {
+            color: var(--primary-color);
+            font-size: 1.25rem;
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .card h2::before {
+            content: '';
+            display: inline-block;
+            width: 4px;
+            height: 24px;
+            background: var(--primary-light);
+            border-radius: 2px;
+        }
+        
+        .card p, .card li {
+            color: var(--text-secondary);
+            margin-bottom: 12px;
+        }
+        
+        .card ul {
+            padding-left: 20px;
+        }
+        
+        .card li {
+            margin-bottom: 8px;
+        }
+        
+        .highlight {
+            background: linear-gradient(135deg, rgba(27, 94, 32, 0.1), rgba(76, 175, 80, 0.1));
+            border: 1px solid rgba(76, 175, 80, 0.3);
+            border-radius: 8px;
+            padding: 16px;
+            margin-top: 12px;
+        }
+        
+        .footer {
+            text-align: center;
+            padding: 30px 20px;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+        
+        .footer a {
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+        
+        .footer a:hover {
+            text-decoration: underline;
+        }
+        
+        .app-icon {
+            width: 80px;
+            height: 80px;
+            background: white;
+            border-radius: 20px;
+            margin: 0 auto 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 40px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+        }
+        
+        .update-date {
+            background: var(--primary-light);
+            color: white;
+            display: inline-block;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            margin-top: 10px;
+        }
+        
+        @media (max-width: 600px) {
+            .header h1 {
+                font-size: 1.5rem;
+            }
+            
+            .card {
+                padding: 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="app-icon">🕌</div>
+        <h1>Gizlilik Politikası</h1>
+        <p>Mirac Prayer Assistant</p>
+        <span class="update-date">Son Güncelleme: 2 Aralık 2025</span>
+    </header>
+    
+    <main class="container">
+        <div class="card">
+            <h2>Giriş</h2>
+            <p>Mirac Prayer Assistant ("Uygulama") olarak kullanıcılarımızın gizliliğine büyük önem veriyoruz. Bu Gizlilik Politikası, uygulamayı kullandığınızda hangi bilgileri topladığımızı, nasıl kullandığımızı ve koruduğumuzu açıklamaktadır.</p>
+        </div>
+        
+        <div class="card">
+            <h2>1. Toplanan Bilgiler</h2>
+            
+            <h3 style="color: var(--primary-color); margin: 16px 0 8px;">a) Konum Verileri</h3>
+            <ul>
+                <li>Namaz vakitlerini hesaplamak için konumunuz kullanılır</li>
+                <li>Kıble yönünü belirlemek için konum erişimi gereklidir</li>
+                <li>Yakındaki camileri bulmak için konum verileri işlenir</li>
+                <li>Seferi Mod için GPS tabanlı mesafe hesaplaması yapılır</li>
+            </ul>
+            
+            <h3 style="color: var(--primary-color); margin: 16px 0 8px;">b) Cihaz Bilgileri</h3>
+            <ul>
+                <li>Cihaz modeli ve işletim sistemi versiyonu</li>
+                <li>Uygulama performansı için anonim kullanım istatistikleri</li>
+            </ul>
+            
+            <h3 style="color: var(--primary-color); margin: 16px 0 8px;">c) Kamera Erişimi</h3>
+            <ul>
+                <li>AR Kıble modu için kamera kullanılır</li>
+                <li>Helal Gıda Kontrolü için barkod tarama</li>
+                <li>Fotoğraf veya video kaydedilmez</li>
+            </ul>
+            
+            <h3 style="color: var(--primary-color); margin: 16px 0 8px;">d) Yerel Depolama</h3>
+            <ul>
+                <li>Kullanıcı tercihleri cihazda yerel olarak saklanır</li>
+                <li>Tesbih sayıları ve istatistikler cihazda tutulur</li>
+            </ul>
+        </div>
+        
+        <div class="card">
+            <h2>2. Bilgilerin Kullanımı</h2>
+            <p>Topladığımız bilgiler şu amaçlarla kullanılır:</p>
+            <ul>
+                <li>Namaz vakitlerini doğru hesaplamak</li>
+                <li>Kıble yönünü belirlemek</li>
+                <li>Yakındaki camileri göstermek</li>
+                <li>Bildirim göndermek (izninizle)</li>
+                <li>Uygulama deneyimini iyileştirmek</li>
+                <li>Hataları tespit etmek ve düzeltmek</li>
+            </ul>
+        </div>
+        
+        <div class="card">
+            <h2>3. Reklam ve Analitik</h2>
+            <ul>
+                <li>Google AdMob üzerinden reklam gösterilmektedir</li>
+                <li>Reklamlar kişiselleştirilmiş olabilir (cihaz ayarlarınıza bağlı)</li>
+                <li>Anonim kullanım istatistikleri toplanabilir</li>
+                <li>Premium kullanıcılara reklam gösterilmez</li>
+            </ul>
+        </div>
+        
+        <div class="card">
+            <h2>4. Üçüncü Taraf Hizmetler</h2>
+            <p>Uygulamamız şu üçüncü taraf hizmetleri kullanmaktadır:</p>
+            <ul>
+                <li><strong>Google AdMob</strong> - Reklam hizmetleri</li>
+                <li><strong>Open Food Facts API</strong> - Helal gıda kontrolü</li>
+                <li><strong>OpenStreetMap</strong> - Cami bulma hizmeti</li>
+                <li><strong>Google Play Hizmetleri</strong> - Uygulama altyapısı</li>
+            </ul>
+            <div class="highlight">
+                <p><strong>Not:</strong> Bu hizmetlerin kendi gizlilik politikaları geçerlidir. Lütfen ilgili hizmetlerin gizlilik politikalarını da incelemenizi tavsiye ederiz.</p>
+            </div>
+        </div>
+        
+        <div class="card">
+            <h2>5. Veri Güvenliği</h2>
+            <ul>
+                <li>Tüm veriler şifreli olarak iletilir (HTTPS)</li>
+                <li>Kişisel verileriniz sunucularımızda saklanmaz</li>
+                <li>Kullanıcı tercihleri yalnızca cihazınızda tutulur</li>
+                <li>Üçüncü taraflarla kişisel veri paylaşımı yapılmaz</li>
+            </ul>
+        </div>
+        
+        <div class="card">
+            <h2>6. Çocukların Gizliliği</h2>
+            <ul>
+                <li>Uygulamamız tüm yaş gruplarına uygundur</li>
+                <li>13 yaş altı çocuklardan bilerek kişisel bilgi toplamayız</li>
+                <li>Çocuk Modu, eğitici içerik sunmak için tasarlanmıştır</li>
+                <li>Ebeveynler çocuklarının uygulama kullanımını izleyebilir</li>
+            </ul>
+        </div>
+        
+        <div class="card">
+            <h2>7. Kullanıcı Hakları</h2>
+            <p>Aşağıdaki haklara sahipsiniz:</p>
+            <ul>
+                <li>Uygulama izinlerini istediğiniz zaman iptal edebilirsiniz</li>
+                <li>Yerel verileri uygulama ayarlarından silebilirsiniz</li>
+                <li>Bildirimleri kapatabilirsiniz</li>
+                <li>Konum erişimini kısıtlayabilirsiniz</li>
+                <li>Kişiselleştirilmiş reklamları devre dışı bırakabilirsiniz</li>
+            </ul>
+        </div>
+        
+        <div class="card">
+            <h2>8. Politika Değişiklikleri</h2>
+            <p>Bu gizlilik politikası zaman zaman güncellenebilir. Önemli değişiklikler uygulama içinden bildirilecektir. Güncel politikayı her zaman bu sayfadan kontrol edebilirsiniz.</p>
+        </div>
+        
+        <div class="card">
+            <h2>9. İletişim</h2>
+            <p>Gizlilikle ilgili sorularınız için bizimle iletişime geçebilirsiniz:</p>
+            <div class="highlight">
+                <p>📧 <strong>E-posta:</strong> <a href="mailto:privacy@miracprayer.com">privacy@miracprayer.com</a></p>
+                <p>🌐 <strong>Web:</strong> <a href="https://miracprayerassistant.github.io">miracprayerassistant.github.io</a></p>
+            </div>
+        </div>
+    </main>
+    
+    <footer class="footer">
+        <p>© 2025 Mirac Prayer Assistant. Tüm hakları saklıdır.</p>
+        <p style="margin-top: 10px;">
+            <a href="/">Ana Sayfa</a> · 
+            <a href="/terms/">Kullanım Koşulları</a> · 
+            <a href="mailto:privacy@miracprayer.com">İletişim</a>
+        </p>
+    </footer>
+</body>
+</html>
