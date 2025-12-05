@@ -23,8 +23,9 @@ class AdService {
   static const String _interstitialAdUnitIdAndroid = 'ca-app-pub-XXXXXXXXXXXXXXXX/XXXXXXXXXX'; // TODO: Replace
   static const String _interstitialAdUnitIdIOS = 'ca-app-pub-XXXXXXXXXXXXXXXX/XXXXXXXXXX'; // TODO: Replace
   
-  // Use test ads in debug mode
-  static bool get _useTestAds => kDebugMode;
+  // CRITICAL FIX: Always use test ads until real AdMob IDs are configured
+  // This prevents crash in TestFlight/Production builds with invalid ad unit IDs
+  static bool get _useTestAds => true; // Changed from: kDebugMode
 
   InterstitialAd? _interstitialAd;
   bool _isInterstitialAdReady = false;
