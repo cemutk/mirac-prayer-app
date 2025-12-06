@@ -1,7 +1,7 @@
 name: mirac_prayer_assistant
 description: A new Flutter project.
 publish_to: none
-version: 1.1.5+11
+version: 1.1.5+12
 
 environment:
   sdk: ^3.6.0
@@ -37,7 +37,7 @@ dependencies:
   url_launcher: ^6.2.4
   mobile_scanner: ^5.1.1  # Barcode scanning for halal food check
   http: ^1.2.0  # HTTP client for API calls
-  google_mobile_ads: ^5.1.0  # Google AdMob for ads and monetization
+  # google_mobile_ads: ^5.1.0  # DISABLED: Causes iOS crash - needs real AdMob App ID
 
   universal_html: ^2.2.4
 dev_dependencies:
