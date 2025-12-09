@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Miraç: Namaz Vakti & Kıble</title>
+    <meta name="description" content="Namaz vakitleri, Kıble pusulası, Kuran-ı Kerim, dijital tesbih ve daha fazlası">
+    <style>
+        :root {
+            --primary-color: #2D5A4A;
+            --primary-light: #4CAF50;
+            --background: #f8f9fa;
+            --card-bg: #ffffff;
+            --text-primary: #212121;
+            --text-secondary: #757575;
+        }
+        
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: var(--background);
+            color: var(--text-primary);
+            line-height: 1.6;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, var(--primary-color), var(--primary-light));
+            color: white;
+            padding: 60px 20px;
+            text-align: center;
+        }
+        
+        .header h1 { font-size: 2.5rem; margin-bottom: 15px; }
+        .header p { opacity: 0.9; font-size: 1.2rem; }
+        
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            flex: 1;
+        }
+        
+        .links {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+        
+        .link-card {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 20px 24px;
+            text-decoration: none;
+            color: var(--text-primary);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        
+        .link-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.12);
+        }
+        
+        .link-card .icon { font-size: 2rem; }
+        .link-card h3 { color: var(--primary-color); margin-bottom: 4px; }
+        .link-card p { color: var(--text-secondary); font-size: 0.9rem; margin: 0; }
+        
+        .footer {
+            text-align: center;
+            padding: 30px 20px;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <h1>🕌 Miraç</h1>
+        <p>Namaz Vakti & Kıble</p>
+    </header>
+    
+    <main class="container">
+        <div class="links">
+            <a href="./support/" class="link-card">
+                <span class="icon">💬</span>
+                <div>
+                    <h3>Destek</h3>
+                    <p>Sorularınız ve yardım için</p>
+                </div>
+            </a>
+            
+            <a href="./privacy-policy/" class="link-card">
+                <span class="icon">🔒</span>
+                <div>
+                    <h3>Gizlilik Politikası</h3>
+                    <p>Verilerinizi nasıl koruyoruz</p>
+                </div>
+            </a>
+            
+            <a href="mailto:miracprayerapp@gmail.com" class="link-card">
+                <span class="icon">📧</span>
+                <div>
+                    <h3>İletişim</h3>
+                    <p>miracprayerapp@gmail.com</p>
+                </div>
+            </a>
+        </div>
+    </main>
+    
+    <footer class="footer">
+        <p>© 2025 Miraç: Namaz Vakti & Kıble. Tüm hakları saklıdır.</p>
+    </footer>
+</body>
+</html>

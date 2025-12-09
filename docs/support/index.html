@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Destek - Miraç: Namaz Vakti & Kıble</title>
+    <meta name="description" content="Miraç uygulaması destek sayfası - Sorularınız ve geri bildirimleriniz için">
+    <style>
+        :root {
+            --primary-color: #2D5A4A;
+            --primary-light: #4CAF50;
+            --accent-gold: #D4A574;
+            --background: #f8f9fa;
+            --card-bg: #ffffff;
+            --text-primary: #212121;
+            --text-secondary: #757575;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+            background: var(--background);
+            color: var(--text-primary);
+            line-height: 1.6;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, var(--primary-color), var(--primary-light));
+            color: white;
+            padding: 50px 20px;
+            text-align: center;
+        }
+        
+        .header h1 {
+            font-size: 2.2rem;
+            margin-bottom: 10px;
+        }
+        
+        .header p {
+            opacity: 0.9;
+            font-size: 1.1rem;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 30px 20px;
+        }
+        
+        .card {
+            background: var(--card-bg);
+            border-radius: 16px;
+            padding: 28px;
+            margin-bottom: 24px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+        }
+        
+        .card h2 {
+            color: var(--primary-color);
+            font-size: 1.4rem;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        
+        .card h2 .icon {
+            font-size: 1.6rem;
+        }
+        
+        .card p, .card li {
+            color: var(--text-secondary);
+            margin-bottom: 12px;
+            font-size: 1rem;
+        }
+        
+        .card ul {
+            padding-left: 24px;
+        }
+        
+        .card li {
+            margin-bottom: 10px;
+        }
+        
+        .contact-box {
+            background: linear-gradient(135deg, rgba(45, 90, 74, 0.08), rgba(76, 175, 80, 0.08));
+            border: 2px solid rgba(45, 90, 74, 0.2);
+            border-radius: 12px;
+            padding: 24px;
+            margin-top: 16px;
+            text-align: center;
+        }
+        
+        .contact-box a {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+        
+        .contact-box a:hover {
+            text-decoration: underline;
+        }
+        
+        .email-btn {
+            display: inline-block;
+            background: var(--primary-color);
+            color: white !important;
+            padding: 14px 32px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            margin-top: 12px;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        
+        .email-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(45, 90, 74, 0.3);
+            text-decoration: none;
+        }
+        
+        .faq-item {
+            border-bottom: 1px solid #eee;
+            padding: 16px 0;
+        }
+        
+        .faq-item:last-child {
+            border-bottom: none;
+        }
+        
+        .faq-item h3 {
+            color: var(--primary-color);
+            font-size: 1.1rem;
+            margin-bottom: 8px;
+        }
+        
+        .faq-item p {
+            margin-bottom: 0;
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 16px;
+            margin-top: 16px;
+        }
+        
+        .feature-item {
+            background: #f8f9fa;
+            padding: 16px;
+            border-radius: 10px;
+            text-align: center;
+        }
+        
+        .feature-item .icon {
+            font-size: 2rem;
+            margin-bottom: 8px;
+        }
+        
+        .feature-item span {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+        
+        .footer {
+            text-align: center;
+            padding: 30px 20px;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+        
+        .footer a {
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+        
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 600px) {
+            .header h1 {
+                font-size: 1.6rem;
+            }
+            .card {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <h1>🕌 Miraç Destek Merkezi</h1>
+        <p>Namaz Vakti & Kıble Uygulaması</p>
+    </header>
+    
+    <main class="container">
+        <div class="card">
+            <h2><span class="icon">📧</span> Bize Ulaşın</h2>
+            <p>Sorularınız, önerileriniz veya karşılaştığınız sorunlar için bizimle iletişime geçebilirsiniz. En kısa sürede size dönüş yapacağız.</p>
+            <div class="contact-box">
+                <p>Destek için e-posta gönderin:</p>
+                <a href="mailto:miracprayerapp@gmail.com" class="email-btn">📩 miracprayerapp@gmail.com</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <h2><span class="icon">❓</span> Sık Sorulan Sorular</h2>
+            
+            <div class="faq-item">
+                <h3>Namaz vakitleri doğru mu?</h3>
+                <p>Evet, namaz vakitleri Türkiye Diyanet İşleri Başkanlığı hesaplama metoduna göre hesaplanmaktadır. Konum izni vererek bulunduğunuz şehre göre doğru vakitleri alabilirsiniz.</p>
+            </div>
+            
+            <div class="faq-item">
+                <h3>Kıble pusulası nasıl çalışır?</h3>
+                <p>Kıble pusulası, cihazınızın manyetik sensörü ve GPS konumunuzu kullanarak Kabe'nin yönünü hesaplar. En doğru sonuç için cihazınızı manyetik alanlardan uzak tutun ve kalibre edin.</p>
+            </div>
+            
+            <div class="faq-item">
+                <h3>Bildirimler gelmiyor, ne yapmalıyım?</h3>
+                <p>Ayarlar > Bildirimler bölümünden bildirimlerin açık olduğundan emin olun. Ayrıca cihaz ayarlarından uygulama bildirim izinlerini kontrol edin ve pil optimizasyonunu kapatın.</p>
+            </div>
+            
+            <div class="faq-item">
+                <h3>Premium üyelik nedir?</h3>
+                <p>Premium üyelik ile reklamsız deneyim yaşayabilir ve tüm özelliklere sınırsız erişim sağlayabilirsiniz. Premium satın almak için Ayarlar sayfasını ziyaret edin.</p>
+            </div>
+            
+            <div class="faq-item">
+                <h3>Uygulama hangi dilleri destekliyor?</h3>
+                <p>Şu anda uygulama yalnızca Türkçe dilinde hizmet vermektedir.</p>
+            </div>
+        </div>
+        
+        <div class="card">
+            <h2><span class="icon">✨</span> Uygulama Özellikleri</h2>
+            <div class="features-grid">
+                <div class="feature-item">
+                    <div class="icon">⏰</div>
+                    <span>Namaz Vakitleri</span>
+                </div>
+                <div class="feature-item">
+                    <div class="icon">🧭</div>
+                    <span>Kıble Pusulası</span>
+                </div>
+                <div class="feature-item">
+                    <div class="icon">📿</div>
+                    <span>Dijital Tesbih</span>
+                </div>
+                <div class="feature-item">
+                    <div class="icon">📖</div>
+                    <span>Kuran-ı Kerim</span>
+                </div>
+                <div class="feature-item">
+                    <div class="icon">🤲</div>
+                    <span>Dua Koleksiyonu</span>
+                </div>
+                <div class="feature-item">
+                    <div class="icon">🕌</div>
+                    <span>Cami Bulucu</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="card">
+            <h2><span class="icon">🔧</span> Sorun Bildirimi</h2>
+            <p>Bir hata veya sorun bildirmek istiyorsanız, lütfen aşağıdaki bilgileri e-postanıza ekleyin:</p>
+            <ul>
+                <li>Cihaz modeli (örn: iPhone 14, iPad Pro)</li>
+                <li>iOS sürümü</li>
+                <li>Uygulama sürümü</li>
+                <li>Sorunun detaylı açıklaması</li>
+                <li>Varsa ekran görüntüsü</li>
+            </ul>
+            <div class="contact-box">
+                <a href="mailto:miracprayerapp@gmail.com?subject=Hata%20Bildirimi%20-%20Miraç%20App">🐛 Hata Bildir</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <h2><span class="icon">📜</span> Yasal Bilgiler</h2>
+            <p>Uygulamamızın gizlilik politikası ve kullanım koşulları hakkında bilgi almak için:</p>
+            <ul>
+                <li><a href="../privacy-policy/">Gizlilik Politikası</a></li>
+            </ul>
+        </div>
+    </main>
+    
+    <footer class="footer">
+        <p>© 2025 Miraç: Namaz Vakti & Kıble. Tüm hakları saklıdır.</p>
+        <p style="margin-top: 10px;">
+            <a href="../privacy-policy/">Gizlilik Politikası</a> · 
+            <a href="mailto:miracprayerapp@gmail.com">İletişim</a>
+        </p>
+    </footer>
+</body>
+</html>
