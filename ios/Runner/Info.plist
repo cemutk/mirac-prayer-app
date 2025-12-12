@@ -65,6 +65,11 @@
 		<string>Mikrofon, video kayıt özellikleri için gereklidir.</string>
 		<key>NSMotionUsageDescription</key>
 		<string>Hareket sensörleri, Kıble pusulası için doğru yön belirleme amacıyla kullanılır.</string>
+		<key>UIBackgroundModes</key>
+		<array>
+			<string>fetch</string>
+			<string>remote-notification</string>
+		</array>
 		<key>UIStatusBarHidden</key>
 		<false/>
 	</dict>
