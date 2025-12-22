@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:sizer/sizer.dart';
+import 'package:in_app_purchase/in_app_purchase.dart';
 import '../../services/premium_service.dart';
+import '../../services/billing_service.dart';
 import '../../core/app_export.dart';
 
 /// Premium Upgrade Screen
@@ -14,14 +16,26 @@ class PremiumUpgradeScreen extends StatefulWidget {
 
 class _PremiumUpgradeScreenState extends State<PremiumUpgradeScreen> {
   final PremiumService _premiumService = PremiumService();
+  final BillingService _billingService = BillingService();
   bool _isPremium = false;
   DateTime? _expiryDate;
   int _selectedPlan = 1; // 0: Aylık, 1: Yıllık (default yıllık)
+  List<ProductDetails> _products = [];
+  bool _isLoading = true;
 
   @override
   void initState() {
     super.initState();
-    _loadPremiumStatus();
+    _initializeBilling();
+  }
+
+  Future<void> _initializeBilling() async {
+    await _billingService.initialize();
+    await _loadPremiumStatus();
+    setState(() {
+      _products = _billingService.products;
+      _isLoading = false;
+    });
   }
 
   Future<void> _loadPremiumStatus() async {
@@ -35,85 +49,88 @@ class _PremiumUpgradeScreenState extends State<PremiumUpgradeScreen> {
   }
 
   Future<void> _purchasePremium() async {
-    // TODO: Implement actual in-app purchase here
-    // For now, we'll simulate a purchase (for testing)
+    if (_products.isEmpty) {
+      _showErrorDialog('Abonelik planları yüklenemedi. Lütfen daha sonra tekrar deneyin.');
+      return;
+    }
+
+    // Get selected product
+    final productId = _selectedPlan == 1 
+        ? BillingService.yearlySubscriptionId 
+        : BillingService.monthlySubscriptionId;
     
+    final product = _products.firstWhere(
+      (p) => p.id == productId,
+      orElse: () {
+        _showErrorDialog('Seçili abonelik planı bulunamadı.');
+        return _products.first;
+      },
+    );
+
+    // Show loading
     showDialog(
       context: context,
       barrierDismissible: false,
       builder: (context) => const Center(child: CircularProgressIndicator()),
     );
 
-    // Simulate purchase delay
-    await Future.delayed(const Duration(seconds: 2));
+    // Initiate purchase
+    final success = await _billingService.purchaseSubscription(product);
+    
+    if (mounted) {
+      Navigator.pop(context); // Close loading
+      
+      if (!success) {
+        _showErrorDialog('Satın alma başlatılamadı. Lütfen tekrar deneyin.');
+      }
+      // Success will be handled by purchase stream listener in BillingService
+    }
+  }
 
-    // Set premium status based on selected plan
-    final days = _selectedPlan == 1 ? 365 : 30;
-    await _premiumService.setPremiumStatus(
-      true,
-      expiryDate: DateTime.now().add(Duration(days: days)),
+  Future<void> _restorePurchases() async {
+    showDialog(
+      context: context,
+      barrierDismissible: false,
+      builder: (context) => const Center(child: CircularProgressIndicator()),
     );
 
+    await _billingService.restorePurchases();
+    await _loadPremiumStatus();
+
     if (mounted) {
-      Navigator.pop(context); // Close loading dialog
+      Navigator.pop(context);
       
-      // Show success dialog
-      showDialog(
-        context: context,
-        builder: (context) => AlertDialog(
-          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
-          title: Column(
-            children: [
-              Container(
-                padding: const EdgeInsets.all(16),
-                decoration: BoxDecoration(
-                  color: Colors.green.shade50,
-                  shape: BoxShape.circle,
-                ),
-                child: Icon(Icons.check_circle, color: Colors.green.shade600, size: 48),
-              ),
-              const SizedBox(height: 16),
-              const Text('Maşallah! 🎉', style: TextStyle(fontSize: 24)),
-            ],
+      if (_isPremium) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(
+            content: Text('Aboneliğiniz geri yüklendi!'),
+            backgroundColor: Colors.green,
           ),
-          content: Column(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              const Text(
-                'Premium aboneliğiniz aktif edildi!',
-                style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
-                textAlign: TextAlign.center,
-              ),
-              const SizedBox(height: 12),
-              Text(
-                _selectedPlan == 1
-                    ? '1 yıl boyunca tüm özelliklerin ve reklamsız deneyimin keyfini çıkarın.'
-                    : '1 ay boyunca tüm özelliklerin ve reklamsız deneyimin keyfini çıkarın.',
-                textAlign: TextAlign.center,
-                style: TextStyle(color: Colors.grey.shade600),
-              ),
-            ],
+        );
+      } else {
+        ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(
+            content: Text('Geri yüklenecek abonelik bulunamadı.'),
           ),
-          actions: [
-            SizedBox(
-              width: double.infinity,
-              child: ElevatedButton(
-                onPressed: () {
-                  Navigator.pop(context);
-                  Navigator.pop(context);
-                },
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.green.shade600,
-                  padding: const EdgeInsets.symmetric(vertical: 12),
-                  shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
-                ),
-                child: const Text('Hayırlı Olsun!', style: TextStyle(color: Colors.white, fontSize: 16)),
-              ),
-            ),
-          ],
-        ),
-      );
+        );
+      }
     }
+  }
+
+  void _showErrorDialog(String message) {
+    showDialog(
+      context: context,
+      builder: (context) => AlertDialog(
+        title: const Text('Hata'),
+        content: Text(message),
+        actions: [
+          TextButton(
+            onPressed: () => Navigator.pop(context),
+            child: const Text('Tamam'),
+          ),
+        ],
+      ),
+    );
   }
 
   @override
@@ -649,12 +666,7 @@ class _PremiumUpgradeScreenState extends State<PremiumUpgradeScreen> {
                 SizedBox(height: 1.h),
                 
                 TextButton(
-                  onPressed: () {
-                    // Restore purchases
-                    ScaffoldMessenger.of(context).showSnackBar(
-                      const SnackBar(content: Text('Satın alımlar geri yükleniyor...')),
-                    );
-                  },
+                  onPressed: _restorePurchases,
                   child: Text(
                     'Satın Alımları Geri Yükle',
                     style: TextStyle(color: Colors.grey.shade600),

@@ -38,6 +38,7 @@ dependencies:
   mobile_scanner: ^5.1.1  # Barcode scanning for halal food check
   http: ^1.2.0  # HTTP client for API calls
   google_mobile_ads: ^5.1.0  # AdMob SDK for advertisements
+  in_app_purchase: ^3.2.0  # Google Play Billing for subscriptions
 
   universal_html: ^2.2.4
 dev_dependencies:
