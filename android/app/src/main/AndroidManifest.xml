@@ -11,6 +11,9 @@
     <uses-permission android:name="android.permission.SCHEDULE_EXACT_ALARM" />
     <uses-permission android:name="android.permission.USE_EXACT_ALARM" />
     
+    <!-- AdMob Advertising ID permission for Android 13+ -->
+    <uses-permission android:name="com.google.android.gms.permission.AD_ID"/>
+    
     <!-- Background & Boot permissions for notifications -->
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
     <uses-permission android:name="android.permission.WAKE_LOCK"/>
@@ -27,7 +30,8 @@
         android:label="Miraç"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher"
-        android:enableOnBackInvokedCallback="true">
+        android:enableOnBackInvokedCallback="true"
+        android:extractNativeLibs="false">
         <activity
                 android:name=".MainActivity"
                 android:exported="true"
@@ -73,11 +77,10 @@
         <!-- Action Receiver for notification actions -->
         <receiver android:exported="false" android:name="com.dexterous.flutterlocalnotifications.ActionBroadcastReceiver" />
         
-        <!-- Google AdMob App ID - Test ID for development -->
-        <!-- Replace with your real AdMob App ID before publishing -->
+        <!-- Google AdMob App ID - Production -->
         <meta-data
             android:name="com.google.android.gms.ads.APPLICATION_ID"
-            android:value="ca-app-pub-3940256099942544~3347511713"/>
+            android:value="ca-app-pub-3627256909548242~7741170824"/>
         
         <!-- Don't delete the meta-data below.
              This is used by the Flutter tool to generate GeneratedPluginRegistrant.java -->
