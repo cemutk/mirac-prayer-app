@@ -15,6 +15,7 @@ import '../../services/notification_service.dart';
 import '../../widgets/custom_app_bar.dart';
 import '../../widgets/custom_bottom_bar.dart';
 import '../../widgets/custom_icon_widget.dart';
+import '../../widgets/banner_ad_widget.dart';
 import './widgets/city_selection_bottom_sheet_widget.dart';
 import './widgets/daily_prayer_tracker_widget.dart';
 import './widgets/empty_state_widget.dart';
@@ -1109,6 +1110,11 @@ class _HomeScreenPrayerTimesState extends State<HomeScreenPrayerTimes> {
                         textAlign: TextAlign.center,
                       ),
                     ),
+                  ),
+
+                  // Banner Reklam
+                  const SliverToBoxAdapter(
+                    child: BannerAdWidget(),
                   ),
 
                   SizedBox(height: 10.h).toSliver(),
