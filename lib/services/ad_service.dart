@@ -14,15 +14,15 @@ class AdService {
   InterstitialAd? _interstitialAd;
   bool _isInterstitialAdReady = false;
 
-  // Ad Unit IDs - Using test IDs for now
-  // TODO: Replace with real ad unit IDs after app-ads.txt verification (24h)
+  // Ad Unit IDs - Production IDs configured
   static const String _bannerAdUnitId = kDebugMode
       ? 'ca-app-pub-3940256099942544/6300978111' // Test ID
-      : 'ca-app-pub-3627256909548242/XXXXXX'; // Replace after creating ad unit
+      : 'ca-app-pub-3627256909548242/3487861353'; // Banner Ad Unit
       
+  // Interstitial disabled - Banner only for minimal user experience
   static const String _interstitialAdUnitId = kDebugMode
       ? 'ca-app-pub-3940256099942544/1033173712' // Test ID
-      : 'ca-app-pub-3627256909548242/YYYYYY'; // Replace after creating ad unit
+      : 'ca-app-pub-3940256099942544/1033173712'; // Disabled in production
 
   /// Initialize AdMob SDK
   Future<void> initialize() async {

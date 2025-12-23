@@ -11,6 +11,8 @@ import 'package:timezone/timezone.dart' as tz;
 import 'package:timezone/data/latest_all.dart' as tzdata;
 import 'services/notification_service.dart';
 import 'services/prayer_times_service.dart';
+import 'services/ad_service.dart';
+import 'services/billing_service.dart';
 import 'data/religious_days_data.dart';
 
 void main() async {
@@ -29,6 +31,15 @@ void main() async {
     await themeManager.initialize();
   } catch (e) {
     debugPrint('Theme init error: $e');
+  }
+
+  // Initialize AdMob and Billing services
+  try {
+    await AdService().initialize();
+    await BillingService().initialize();
+    debugPrint('✅ Monetization services initialized');
+  } catch (e) {
+    debugPrint('⚠️ Monetization init error: $e');
   }
 
   // CRITICAL: Defer all notification/background work to AFTER app is running

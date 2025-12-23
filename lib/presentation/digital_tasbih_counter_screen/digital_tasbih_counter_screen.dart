@@ -491,8 +491,7 @@ class _DigitalTasbihCounterScreenState extends State<DigitalTasbihCounterScreen>
 
               SizedBox(height: 2.h),
               
-              // Banner Ad at bottom of tesbih screen
-              const BannerAdWidget(),
+              // No ads on tesbih screen - respectful user experience
               
               SizedBox(height: 1.h),
             ],
