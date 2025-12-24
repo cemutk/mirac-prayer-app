@@ -319,6 +319,7 @@ class _MosqueFinderScreenState extends State<MosqueFinderScreen>
           _buildQuickFilters(),
           _buildTabBar(),
           Expanded(child: _buildBody()),
+          const BannerAdWidget(),
         ],
       ),
       floatingActionButton: _buildFilterFab(),
@@ -590,34 +591,14 @@ class _MosqueFinderScreenState extends State<MosqueFinderScreen>
       );
     }
 
-    // Her 5 camide bir reklam ekle
-    final adCount = mosques.length ~/ 5;
-    final totalCount = mosques.length + adCount;
-
     return RefreshIndicator(
       onRefresh: _loadMosques,
       color: AppTheme.primaryDark,
       child: ListView.builder(
-        padding: const EdgeInsets.fromLTRB(16, 8, 16, 100),
-        itemCount: totalCount,
+        padding: const EdgeInsets.fromLTRB(16, 8, 16, 16),
+        itemCount: mosques.length,
         itemBuilder: (context, index) {
-          // Her 6. item (5 camiden sonra) reklam göster
-          if (index > 0 && (index + 1) % 6 == 0) {
-            return const Padding(
-              padding: EdgeInsets.symmetric(vertical: 8),
-              child: BannerAdWidget(),
-            );
-          }
-          
-          // Reklam sayısını çıkararak gerçek cami indexini hesapla
-          final adsBeforeThis = index ~/ 6;
-          final mosqueIndex = index - adsBeforeThis;
-          
-          if (mosqueIndex >= mosques.length) {
-            return const SizedBox.shrink();
-          }
-          
-          final mosque = mosques[mosqueIndex];
+          final mosque = mosques[index];
           return FutureBuilder<bool>(
             future: _mosqueService.isFavorite(mosque.id),
             builder: (context, snapshot) {

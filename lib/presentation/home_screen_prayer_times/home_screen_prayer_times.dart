@@ -1112,11 +1112,6 @@ class _HomeScreenPrayerTimesState extends State<HomeScreenPrayerTimes> {
                     ),
                   ),
 
-                  // Banner Reklam
-                  const SliverToBoxAdapter(
-                    child: BannerAdWidget(),
-                  ),
-
                   SizedBox(height: 10.h).toSliver(),
                 ],
               ),
@@ -1132,18 +1127,24 @@ class _HomeScreenPrayerTimesState extends State<HomeScreenPrayerTimes> {
               ),
             )
           : null,
-      bottomNavigationBar: CustomBottomBar(
-        currentIndex: _currentBottomNavIndex,
-        onTap: (index) async {
-          setState(() => _currentBottomNavIndex = index);
+      bottomNavigationBar: Column(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          const BannerAdWidget(),
+          CustomBottomBar(
+            currentIndex: _currentBottomNavIndex,
+            onTap: (index) async {
+              setState(() => _currentBottomNavIndex = index);
 
-          // CRITICAL: Refresh when coming back from settings (index 6)
-          if (index == 0 && _currentBottomNavIndex == 6) {
-            // Coming back from settings to home
-            await _loadSavedCity(); // This will trigger _fetchPrayerTimes
-            await _loadPeriodMode(); // Reload period mode
-          }
-        },
+              // CRITICAL: Refresh when coming back from settings (index 6)
+              if (index == 0 && _currentBottomNavIndex == 6) {
+                // Coming back from settings to home
+                await _loadSavedCity(); // This will trigger _fetchPrayerTimes
+                await _loadPeriodMode(); // Reload period mode
+              }
+            },
+          ),
+        ],
       ),
     );
   }

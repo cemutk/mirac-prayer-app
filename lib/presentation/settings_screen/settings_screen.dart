@@ -2751,17 +2751,21 @@ class _SettingsScreenState extends State<SettingsScreen> {
               ),
             ),
             
-            // Banner Ad at bottom of settings
             SizedBox(height: 2.h),
-            const BannerAdWidget(),
           ],
         ),
       ),
-      bottomNavigationBar: CustomBottomBar(
-        currentIndex: _currentIndex,
-        onTap: (index) {
-          setState(() => _currentIndex = index);
-        },
+      bottomNavigationBar: Column(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          const BannerAdWidget(),
+          CustomBottomBar(
+            currentIndex: _currentIndex,
+            onTap: (index) {
+              setState(() => _currentIndex = index);
+            },
+          ),
+        ],
       ),
     );
   }
